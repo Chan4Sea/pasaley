@@ -40,7 +40,20 @@ A Next.js 14 web application with TypeScript and Tailwind CSS for hyperlocal ret
 - Build command: `npm run build`
 - Run command: `npm run start`
 
+## Supabase Integration
+- **Client Library**: `@supabase/supabase-js` installed
+- **Helper Location**: `lib/supabase.ts`
+- **Environment Variables Required**:
+  - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase project URL
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Your Supabase anonymous/public key
+- **Usage**: Import with `import { supabase } from "@/lib/supabase"`
+- **Example**: See `.env.local.example` for environment variable template
+
 ## Recent Changes
+- **Oct 31, 2025**: Added Supabase integration
+  - Installed @supabase/supabase-js
+  - Created Supabase client helper at lib/supabase.ts
+  - Added environment variable documentation
 - **Oct 31, 2025**: Initial Next.js 14 setup with TypeScript and Tailwind CSS
   - Configured for Replit environment
   - Added Prettier with Tailwind plugin
