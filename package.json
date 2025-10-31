@@ -1,0 +1,32 @@
+{
+  "name": "pasaley-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "setup-database": "node scripts/setup-database.js",
+    "populate-sample-data": "node scripts/populate-sample-data.js"
+  },
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.7",
+    "@supabase/supabase-js": "^2.78.0",
+    "lucide-react": "^0.552.0",
+    "next": "14.2.33",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.58.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.33",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
