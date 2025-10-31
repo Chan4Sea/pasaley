@@ -41,9 +41,7 @@ export default function Home() {
 
         setStores(data || []);
       } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Failed to fetch stores"
-        );
+        setError(err instanceof Error ? err.message : "Failed to fetch stores");
       } finally {
         setLoading(false);
       }
@@ -103,10 +101,10 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         {/* Header */}
         <header className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="mb-2 text-4xl font-bold text-gray-900 dark:text-white">
             PasaLey
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
@@ -115,13 +113,13 @@ export default function Home() {
         </header>
 
         {/* Location Controls */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <div className="mb-6 rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div className="flex-1">
               {userLocation ? (
                 <div className="text-sm text-gray-600 dark:text-gray-300">
                   📍 Location enabled
-                  <span className="block text-xs text-gray-500 mt-1">
+                  <span className="mt-1 block text-xs text-gray-500">
                     Showing stores within {selectedRadius} km
                   </span>
                 </div>
@@ -131,16 +129,16 @@ export default function Home() {
                 </div>
               )}
               {locationError && (
-                <p className="text-sm text-red-600 mt-2">{locationError}</p>
+                <p className="mt-2 text-sm text-red-600">{locationError}</p>
               )}
             </div>
 
-            <div className="flex gap-3 items-center flex-wrap">
+            <div className="flex flex-wrap items-center gap-3">
               {userLocation && (
                 <select
                   value={selectedRadius}
                   onChange={(e) => setSelectedRadius(Number(e.target.value))}
-                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   {RADIUS_OPTIONS.map((radius) => (
                     <option key={radius} value={radius}>
@@ -153,7 +151,7 @@ export default function Home() {
               <button
                 onClick={requestLocation}
                 disabled={locationLoading}
-                className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg font-medium transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                className="rounded-lg bg-blue-600 px-6 py-2 font-medium text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-400"
               >
                 {locationLoading
                   ? "Getting location..."
@@ -167,8 +165,8 @@ export default function Home() {
 
         {/* Loading State */}
         {loading && (
-          <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          <div className="py-12 text-center">
+            <div className="inline-block h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"></div>
             <p className="mt-4 text-gray-600 dark:text-gray-300">
               Loading stores...
             </p>
@@ -177,7 +175,7 @@ export default function Home() {
 
         {/* Error State */}
         {error && (
-          <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-6">
+          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
             <p className="text-red-800 dark:text-red-200">Error: {error}</p>
           </div>
         )}
@@ -186,7 +184,7 @@ export default function Home() {
         {!loading && !error && (
           <>
             {filteredStores.length === 0 ? (
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+              <div className="rounded-lg bg-white p-8 text-center shadow-md dark:bg-gray-800">
                 <p className="text-gray-600 dark:text-gray-300">
                   {userLocation
                     ? `No stores found within ${selectedRadius} km of your location`
@@ -204,15 +202,15 @@ export default function Home() {
                   {filteredStores.map((store) => (
                     <div
                       key={store.id}
-                      className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+                      className="rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg dark:bg-gray-800"
                     >
-                      <div className="flex justify-between items-start gap-4">
+                      <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
-                          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                          <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                             {store.name}
                           </h2>
                           {store.description && (
-                            <p className="text-gray-600 dark:text-gray-300 mb-2">
+                            <p className="mb-2 text-gray-600 dark:text-gray-300">
                               {store.description}
                             </p>
                           )}
@@ -222,7 +220,7 @@ export default function Home() {
                         </div>
 
                         {store.distance !== undefined && (
-                          <div className="flex-shrink-0 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
+                          <div className="flex-shrink-0 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-200">
                             {formatKm(store.distance)}
                           </div>
                         )}

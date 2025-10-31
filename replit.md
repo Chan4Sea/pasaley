@@ -50,6 +50,13 @@ A Next.js 14 web application with TypeScript and Tailwind CSS for hyperlocal ret
 - **Example**: See `.env.local.example` for environment variable template
 
 ## Recent Changes
+- **Oct 31, 2025**: Added geolocation + radius filter + distance display (Step 5)
+  - Created lib/geo.ts with Haversine formula for distance calculation
+  - Updated app/page.tsx with geolocation permission handling
+  - Implemented radius-based store filtering (2, 5, 10, 20 km)
+  - Added distance display with automatic formatting (km/m)
+  - Stores are sorted by distance when location is enabled
+  - Responsive UI with Tailwind CSS
 - **Oct 31, 2025**: Added Supabase integration
   - Installed @supabase/supabase-js
   - Created Supabase client helper at lib/supabase.ts
