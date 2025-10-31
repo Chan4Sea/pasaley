@@ -26,8 +26,12 @@ export default function Home() {
 
         if (error) throw error;
         setStores(data || []);
-      } catch (e: any) {
-        setError(e.message || "Failed to load stores");
+      } catch (e: unknown) {
+        if (e instanceof Error) {
+          setError(e.message);
+        } else {
+          setError("Failed to load stores");
+        }
       } finally {
         setLoading(false);
       }
