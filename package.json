@@ -6,15 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "setup-database": "node scripts/setup-database.js",
-    "populate-sample-data": "node scripts/populate-sample-data.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
     "@supabase/supabase-js": "^2.78.0",
     "lucide-react": "^0.552.0",
     "next": "14.2.33",
+    "pnpm-store": "link:/tmp/pnpm-store",
     "react": "^18",
     "react-dom": "^18"
   },
